@@ -10,6 +10,7 @@ import LastSection from './components/LastSection'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
 import TVShows from './components/TVShows'
+import MovieDetails from './components/MovieDetails'
 
 const App = () => {
   return (
@@ -19,25 +20,53 @@ const App = () => {
           <MyNav />
         </header>
         <main className="bg-dark">
-          <MyMain />
-          <MySections />
-          <SectionMarvel />
-          <LastSection />
-
-          <Container>
-            <Routes>
-              <Route
-                path="/"
-                element={
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Container fluid>
+                  <Row>
+                    <MyMain />
+                    <MySections />
+                    <SectionMarvel />
+                    <LastSection />
+                  </Row>
+                </Container>
+              }
+            />
+            <Route
+              path="/TVShows"
+              element={
+                <Container
+                  fluid
+                  className="bg-dark"
+                  style={{ height: '100vh' }}
+                >
                   <Row>
                     <Col xs={12} md={8} lg={6}>
                       <TVShows />
                     </Col>
                   </Row>
-                }
-              />
-            </Routes>
-          </Container>
+                </Container>
+              }
+            />
+            <Route
+              path="/MovieDetails/:movieId"
+              element={
+                <Container
+                  fluid
+                  className="bg-dark"
+                  style={{ height: '100vh' }}
+                >
+                  <Row>
+                    <Col xs={12} md={8} lg={6}>
+                      <MovieDetails />
+                    </Col>
+                  </Row>
+                </Container>
+              }
+            />
+          </Routes>
         </main>
         <footer>
           <MyFooter />
