@@ -51,15 +51,15 @@ const App = () => {
               }
             />
             <Route
-              path="/MovieDetails/:movieId"
+              path="/films/:movieID"
               element={
                 <Container
                   fluid
                   className="bg-dark"
                   style={{ height: '100vh' }}
                 >
-                  <Row>
-                    <Col xs={12} md={8} lg={6}>
+                  <Row className="justify-content-center">
+                    <Col xs={12} md={8} lg={6} className="text-center">
                       <MovieDetails />
                     </Col>
                   </Row>
